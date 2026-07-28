@@ -1,0 +1,81 @@
+
+## 3. index.html
+```html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>LINE Sticker Maker｜貼圖文字編輯器</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-wrap">
+  <aside class="sidebar">
+    <h2>LINE 貼圖編輯工具</h2>
+    <div class="btn-group">
+      <button id="uploadBg">匯入底圖(透明PNG)</button>
+      <button id="addText">新增文字圖層</button>
+      <button id="exportSingle">匯出 960×960 PNG</button>
+    </div>
+
+    <hr>
+    <h4>文字屬性（選取文字後調整）</h4>
+    <div class="form-item">
+      <label>文字內容</label>
+      <input type="text" id="txtContent" placeholder="輸入文字">
+    </div>
+    <div class="form-item">
+      <label>文字大小</label>
+      <input type="range" id="txtSize" min="20" max="160" value="72">
+      <span id="sizeValue">72</span>
+    </div>
+    <div class="form-item">
+      <label>文字顏色</label>
+      <input type="color" id="txtColor" value="#ffffff">
+    </div>
+    <div class="form-item">
+      <label>描邊顏色</label>
+      <input type="color" id="strokeColor" value="#000000">
+    </div>
+    <div class="form-item">
+      <label>描邊粗細</label>
+      <input type="range" id="strokeWidth" min="0" max="10" value="4">
+      <span id="strokeValue">4</span>
+    </div>
+
+    <hr>
+    <h4>圖片清晰度調整</h4>
+    <div class="form-item">
+      <label>銳化強度</label>
+      <input type="range" id="sharpLevel" min="0" max="100" value="30">
+    </div>
+    <div class="form-item">
+      <label>亮度</label>
+      <input type="range" id="brightness" min="-50" max="50" value="0">
+    </div>
+    <div class="form-item">
+      <label>對比</label>
+      <input type="range" id="contrast" min="-30" max="30" value="0">
+    </div>
+    <button id="applyFilter">套用影像調整</button>
+
+    <hr>
+    <div class="rule-box">
+      <strong>LINE規範重點</strong>
+      <p>尺寸 960×960｜四周保留安全邊距<br>禁止IP、商標、人像截圖<br>背景必須透明，勿填滿白底</p>
+    </div>
+  </aside>
+
+  <main class="canvas-area">
+    <div class="canvas-container">
+      <canvas id="stickerCanvas" width="960" height="960"></canvas>
+      <div class="safe-border"></div>
+    </div>
+    <p class="tip">滑鼠拖曳移動文字｜點擊文字選取後可修改樣式</p>
+  </main>
+</div>
+
+<script src="js/editor.js"></script>
+</body>
+</html>
